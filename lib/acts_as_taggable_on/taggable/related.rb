@@ -49,7 +49,7 @@ module ActsAsTaggableOn::Taggable
     private
 
     def exclude_self(klass, id)
-      "#{klass.table_name}.#{klass.primary_key} != #{id} AND" if [self.class.base_class, self.class].include? klass
+      "#{klass.table_name}.#{klass.primary_key} != '#{id}' AND" if [self.class.base_class, self.class].include? klass
     end
 
     def group_columns(klass)
